@@ -4,6 +4,8 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 
+np.set_printoptions(precision=6, suppress=True)
+
 Y = np.array([[1.0, 2.0, 4.0, 10, 65, 160],
               [2.5, 5.0, 25, 50, 200, 600],
               [30, 50, 300, 500, 2000, 6000],
@@ -41,7 +43,7 @@ sample = XT.shape[0]
 print("sample number = ", XT.shape[0])
 
 X = XT.T
-print("X:\n", X)
+print("X.T:\n", X.T)
 
 R = np.empty_like(X)
 
@@ -88,17 +90,11 @@ for h in range(level):
             total += math.pow(W[i, j] * (R[i, j] - S[i, h]), 2)
         Z[h, j] = math.sqrt(total)
 
-#print("Z: \n", Z)
-
 nita1 = -40.0
 
 Z1 = np.exp(nita1 * Z)
 
-#print("Z1 = ", Z1)
-
 total = Z1.sum(axis=0)
-
-#print("total = ", total)
 
 U1 = Z1 / total
 
@@ -119,19 +115,15 @@ for h in range(level):
             total += abs(W[i, j] * (R[i, j] - S[i, h]))
         Z[h, j] = total
 
-#print("Z: \n", Z)
-
 nita2 = -23.0
 
 Z2 = np.exp(nita2 * Z)
-
-#print("Z2 = ", Z2)
 
 total = Z2.sum(axis=0)
 
 U2 = Z2 / total
 
-print("U2.T = ", np.round(U2.T, 4))
+print("U2.T =\n", U2.T)
 
 shannon_m = U2 * np.log(U2) * (-1.0)
 shannon = shannon_m.sum(axis=0)
