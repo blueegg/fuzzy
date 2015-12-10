@@ -127,5 +127,5 @@ print("U2.T =\n", U2.T)
 
 shannon_m = U2 * np.log(U2) * (-1.0)
 shannon = shannon_m.sum(axis=0)
-print("U2 shannon is:\n", shannon)
+print("U2 Shannon is:\n", shannon)
 
