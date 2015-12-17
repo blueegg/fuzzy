@@ -1,6 +1,7 @@
-#! /usr/bin/env python3
+#! /usr/bin/env python
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 x0 = np.array([3.936, 4.575, 4.968, 5.063, 5.968, 5.507])
 
